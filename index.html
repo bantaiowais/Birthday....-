@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Birthday Alvina 💖</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Great+Vibes&family=Caveat:wght@600&family=Poppins:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Confetti Canvas -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      width: 100vw;
+      overflow-x: hidden;
+      background: #000;
+      color: #333;
+      position: relative;
+    }
+
+    .page {
+      display: none;
+      min-height: 100vh;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      position: relative;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* =========================================
+       PAGE 1: LUXURY BANK VAULT / LOCKER
+    ========================================= */
+    #page1 {
+      background: radial-gradient(circle, #1a1a1a 0%, #080808 70%, #000000 100%);
+      color: #e5c07b;
+      text-align: center;
+    }
+
+    .vault-box {
+      border: 3px solid #d4af37;
+      padding: 30px 20px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #111111, #1e1e1e);
+      box-shadow: 0 0 35px rgba(212, 175, 55, 0.25), inset 0 0 15px rgba(212, 175, 55, 0.15);
+      max-width: 360px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .vault-dial {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 4px dashed #d4af37;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      box-shadow: inset 0 0 12px #d4af37;
+      animation: dialRotate 12s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes dialRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .vault-title {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      letter-spacing: 3px;
+      color: #f7d774;
+      text-shadow: 0 0 10px rgba(247, 215, 116, 0.5);
+      margin-bottom: 8px;
+    }
+
+    .pass-dots {
+      display: flex;
+      gap: 12px;
+      margin: 18px 0 25px;
+    }
+
+    .dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #d4af37;
+      background: transparent;
+      transition: all 0.25s ease;
+    }
+
+    .dot.filled {
+      background: #f7d774;
+      box-shadow: 0 0 10px #f7d774;
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      width: 100%;
+    }
+
+    .key-btn {
+      background: #141414;
+      border: 1px solid #d4af37;
+      color: #f7d774;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: all 0.15s ease;
+      font-family: 'Cinzel', serif;
+    }
+
+    .key-btn:active {
+      background: #d4af37;
+      color: #000;
+      transform: scale(0.92);
+    }
+
+    .error-msg {
+      color: #ff5252;
+      font-size: 13px;
+      margin-top: 12px;
+      min-height: 18px;
+    }
+
+    /* =========================================
+       PAGE 2: BABY PINK BIRTHDAY CELEBRATION
+    ========================================= */
+    #page2 {
+      background: linear-gradient(135deg, #ffd1dc 0%, #ffc0cb 50%, #ffe4e1 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bday-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 52px;
+      color: #d63384;
+      text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.9), 0 0 25px rgba(214, 51, 132, 0.4);
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+
+    .floating-balloon {
+      position: absolute;
+      bottom: -60px;
+      font-size: 40px;
+      animation: floatUpward 7s linear infinite;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    @keyframes floatUpward {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(20deg); opacity: 0; }
+    }
+
+    .primary-btn {
+      background: linear-gradient(45deg, #ff4081, #e91e63);
+      color: #fff;
+      font-weight: 600;
+      font-size: 18px;
+      padding: 14px 34px;
+      border-radius: 50px;
+      border: none;
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 5;
+    }
+
+    .primary-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* =========================================
+       PAGE 3: DANCING ANIMALS & MESSAGES
+    ========================================= */
+    #page3 {
+      background: linear-gradient(180deg, #fff0f5 0%, #ffe6eb 100%);
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    .girl-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: #c2185b;
+      margin-bottom: 25px;
+    }
+
+    .animals-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 20px 0 35px;
+    }
+
+    .animal-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px dashed #ff80ab;
+      border-radius: 20px;
+      padding: 20px 15px;
+      width: 140px;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(255, 128, 171, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .animal-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .animal-icon {
+      font-size: 55px;
+      display: inline-block;
+      animation: animalDance 1s infinite alternate ease-in-out;
+    }
+
+    .hen-dance {
+      animation: henWiggle 0.8s infinite alternate ease-in-out;
+    }
+
+    @keyframes animalDance {
+      0% { transform: translateY(0) rotate(-10deg); }
+      100% { transform: translateY(-12px) rotate(10deg); }
+    }
+
+    @keyframes henWiggle {
+      0% { transform: scale(1) rotate(-6deg); }
+      100% { transform: scale(1.1) rotate(8deg); }
+    }
+
+    .animal-label {
+      font-size: 14px;
+      color: #880e4f;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    /* Popups / Letter Modals */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 22px;
+      padding: 26px 20px;
+      max-width: 440px;
+      width: 100%;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      position: relative;
+      animation: popupOpen 0.4s ease forwards;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
+    @keyframes popupOpen {
+      from { transform: scale(0.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Duck message style */
+    .duck-letter {
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      line-height: 1.7;
+      font-size: 14.5px;
+      text-align: left;
+    }
+
+    /* Brown parchment paper for Hen's message */
+    .brown-parchment {
+      background: #fdf3de;
+      background-image: radial-gradient(#ecd5b1 8%, transparent 8%), radial-gradient(#edd3a9 8%, #fdf3de 8%);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+      border: 2px solid #bfa075;
+      box-shadow: inset 0 0 30px rgba(162, 118, 59, 0.15), 0 10px 25px rgba(0,0,0,0.3);
+      color: #3f2a14;
+      font-family: 'Caveat', cursive;
+      font-size: 18.5px;
+      line-height: 1.55;
+      text-align: left;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      background: #444;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+
+    /* =========================================
+       PAGES 4 & 5: VIDEOS & CLOSING
+    ========================================= */
+    .video-page {
+      background: linear-gradient(135deg, #1c1a24 0%, #2b1f2d 100%);
+      color: #fff;
+      text-align: center;
+    }
+
+    .video-frame-container {
+      width: 100%;
+      max-width: 440px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 192, 203, 0.4);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      background: #000;
+      margin: 18px 0;
+    }
+
+    video {
+      width: 100%;
+      max-height: 520px;
+      display: block;
+      outline: none;
+    }
+
+    .closing-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 22px 18px;
+      border-radius: 18px;
+      max-width: 440px;
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .dua-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      color: #ffd1dc;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .apology-note {
+      font-size: 13px;
+      color: #d8b4e2;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+
+    .thanks-tag {
+      font-weight: 700;
+      color: #fff;
+      font-size: 14.5px;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================
+       PAGE 1: BANK LOCKER
+  ========================================= -->
+  <section id="page1" class="page active">
+    <div class="vault-box">
+      <div class="vault-dial">🔐</div>
+      <h1 class="vault-title">SECURITY VAULT</h1>
+      <p style="font-size: 11px; color: #a1884e; letter-spacing: 1px;">ENTER 4-DIGIT PASSCODE</p>
+
+      <div class="pass-dots">
+        <div class="dot" id="d1"></div>
+        <div class="dot" id="d2"></div>
+        <div class="dot" id="d3"></div>
+        <div class="dot" id="d4"></div>
+      </div>
+
+      <div class="keypad">
+        <button class="key-btn" onclick="pressKey('1')">1</button>
+        <button class="key-btn" onclick="pressKey('2')">2</button>
+        <button class="key-btn" onclick="pressKey('3')">3</button>
+        <button class="key-btn" onclick="pressKey('4')">4</button>
+        <button class="key-btn" onclick="pressKey('5')">5</button>
+        <button class="key-btn" onclick="pressKey('6')">6</button>
+        <button class="key-btn" onclick="pressKey('7')">7</button>
+        <button class="key-btn" onclick="pressKey('8')">8</button>
+        <button class="key-btn" onclick="pressKey('9')">9</button>
+        <button class="key-btn" onclick="clearPin()">C</button>
+        <button class="key-btn" onclick="pressKey('0')">0</button>
+        <button class="key-btn" onclick="submitPin()">🔓</button>
+      </div>
+
+      <div class="error-msg" id="errorMsg"></div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       PAGE 2: CELEBRATION
+  ========================================= -->
+  <section id="page2" class="page">
+    <div id="balloon-box"></div>
+    <h1 class="bday-title">HAPPY BIRTHDAY<br>ALVINA ✨</h1>
+    <p style="color: #6d4c41; margin-bottom: 30px; font-size: 15px;">Your special day begins now 💕</p>
+    <button class="primary-btn" onclick="goToPage(3)">Click Here ✨</button>
+  </section>
+
+  <!-- =========================================
+       PAGE 3: DANCING ANIMALS & MESSAGES
+  ========================================= -->
+  <section id="page3" class="page">
+    <h2 class="girl-heading">It's your birthday my girl 💖</h2>
+    <p style="font-size: 14px; color: #777;">Click each animal for a gift 🎁</p>
+
+    <div class="animals-container">
+      <!-- Duck Card -->
+      <div class="animal-card" onclick="openDuck()">
+        <span class="animal-icon">🦆</span>
+        <div class="animal-label">Duck's Gift ✨</div>
+      </div>
+
+      <!-- Hen Card -->
+      <div class="animal-card" onclick="openHen()">
+        <span class="animal-icon hen-dance">🐔</span>
+        <div class="animal-label">Hen's Gift 📜</div>
+      </div>
+    </div>
+
+    <div id="nextBtnContainer" style="display: none; margin-top: 10px;">
+      <button class="primary-btn" onclick="goToPage(4)">Click for next page 🎬</button>
+    </div>
+  </section>
+
+  <!-- Duck Modal -->
+  <div id="duckModal" class="modal">
+    <div class="modal-content">
+      <div class="duck-letter">
+        <h3 style="color: #d63384; font-size: 20px; margin-bottom: 12px;">Happy Birthday! 🎂✨</h3>
+        Wishing you a day filled with happiness, laughter, and unforgettable memories.<br><br>
+        May this new year of your life bring success, good health, and endless joy. May all your dreams and goals come true, and may every day ahead be brighter than the last.<br><br>
+        Enjoy your special day surrounded by love, positivity, and the people who care about you. Have a truly wonderful birthday and an amazing years ahead! 🎉🎈
+      </div>
+      <button class="close-btn" onclick="closeDuck()">Click another animal for another message 🐔</button>
+    </div>
+  </div>
+
+  <!-- Hen Modal (Parchment Paper) -->
+  <div id="henModal" class="modal">
+    <div class="modal-content brown-parchment">
+      <h3 style="font-size: 24px; color: #4e342e; margin-bottom: 8px;">Happy Birthday.</h3>
+      Mujhe nahi pata ki is message ko padhte waqt tum kya feel karogi, lekin main itna zaroor kehna chahta hoon ki aaj tumhara special day hai aur main dil se dua karta hoon ki tum hamesha khush raho.<br><br>
+      Pichhle kuch waqt mein humare beech jo bhi hua, uske bawajood maine socha ki tumhara birthday bina kisi wish ke nahi jaana chahiye.<br><br>
+      Main koi badi baat ya promise nahi karunga. Bas itna kehna chahta hoon ki tum ek achhi insaan ho aur tumhari life mein khushiyan, success, achhi health aur sukoon hamesha rahe.<br><br>
+      Aaj ke din bas smile karna, cake khana, enjoy karna aur apne liye waqt nikalna.<br><br>
+      Happy Birthday once again. 🎂✨
+      <button class="close-btn" style="background:#5d4037;" onclick="closeHen()">Close Note ✨</button>
+    </div>
+  </div>
+
+  <!-- =========================================
+       PAGE 4: FIRST VIDEO (AI VIDEO)
+  ========================================= -->
+  <section id="page4" class="page video-page">
+    <h3 style="color: #f7d774; font-size: 20px; font-family: 'Cinzel', serif;">A Small Memory For You</h3>
+
+    <div class="video-frame-container">
+      <video id="aiVideo" playsinline controls>
+        <source src="Owais ai video.mp4" type="video/mp4">
+        Your browser doesn't support HTML video.
+      </video>
+    </div>
+
+    <!-- Appears automatically after AI video ends, or user can click -->
+    <div id="btnToFinal" style="margin-top: 15px;">
+      <button class="primary-btn" onclick="goToPage(5)">Click here for final result 🎬</button>
+    </div>
+  </section>
+
+  <!-- =========================================
+       PAGE 5: FINAL VIDEO & CLOSING MESSAGE
+  ========================================= -->
+  <section id="page5" class="page video-page">
+    <div class="video-frame-container">
+      <video id="vnVideo" playsinline controls>
+        <source src="Owais vn video.mp4" type="video/mp4">
+        Your browser doesn't support HTML video.
+      </video>
+    </div>
+
+    <div class="closing-card">
+      <p class="dua-text">
+        "Alvina allah tmko kush rakhe sehat de kamyab kre ameen happy birthday my girl✨🤍"
+      </p>
+
+      <p class="apology-note">
+        pls don't msg it's only a gift that I want to tell you sorry if something like agar kuch glt hua m yt a video deka 2 hrs ki html ki or git hub ki😅😅😅
+      </p>
+
+      <div class="thanks-tag">
+        THANKS FOR YOUR TIME 🥰✨🤍
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       JAVASCRIPT LOGIC
+  ========================================= -->
+  <script>
+    // --- Passcode Logic ---
+    let enteredPin = "";
+    const correctPin = "2122";
+
+    function updateDots() {
+      for (let i = 1; i <= 4; i++) {
+        const dot = document.getElementById("d" + i);
+        if (i <= enteredPin.length) {
+          dot.classList.add("filled");
+        } else {
+          dot.classList.remove("filled");
+        }
+      }
+    }
+
+    function pressKey(num) {
+      if (enteredPin.length < 4) {
+        enteredPin += num;
+        updateDots();
+        if (enteredPin.length === 4) {
+          setTimeout(submitPin, 200);
+        }
+      }
+    }
+
+    function clearPin() {
+      enteredPin = "";
+      updateDots();
+      document.getElementById("errorMsg").innerText = "";
+    }
+
+    function submitPin() {
+      if (enteredPin === correctPin) {
+        document.getElementById("errorMsg").style.color = "#4caf50";
+        document.getElementById("errorMsg").innerText = "ACCESS GRANTED 🔓";
+        setTimeout(() => {
+          goToPage(2);
+          launchFireworksCelebration();
+        }, 500);
+      } else {
+        document.getElementById("errorMsg").style.color = "#ff5252";
+        document.getElementById("errorMsg").innerText = "INCORRECT CODE. TRY AGAIN.";
+        enteredPin = "";
+        updateDots();
+      }
+    }
+
+    // --- Page Routing ---
+    function goToPage(pageNum) {
+      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+      const target = document.getElementById("page" + pageNum);
+      if (target) {
+        target.classList.add("active");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Auto start video if on video pages
+      if (pageNum === 4) {
+        const aiVid = document.getElementById("aiVideo");
+        if (aiVid) aiVid.play().catch(()=>{});
+      } else {
+        const aiVid = document.getElementById("aiVideo");
+        if (aiVid) aiVid.pause();
+      }
+
+      if (pageNum === 5) {
+        const vnVid = document.getElementById("vnVideo");
+        if (vnVid) vnVid.play().catch(()=>{});
+        launchConfettiStream();
+      }
+    }
+
+    // --- Page 2 Balloons & Fireworks ---
+    function launchFireworksCelebration() {
+      // Confetti explosion
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
+      // Spawn balloons
+      const balloonBox = document.getElementById("balloon-box");
+      const icons = ["🎈", "💖", "🌸", "✨", "🎀"];
+      for (let i = 0; i < 20; i++) {
+        const b = document.createElement("div");
+        b.className = "floating-balloon";
+        b.innerText = icons[Math.floor(Math.random() * icons.length)];
+        b.style.left = Math.random() * 95 + "vw";
+        b.style.animationDuration = (Math.random() * 3 + 4) + "s";
+        b.style.animationDelay = (Math.random() * 4) + "s";
+        balloonBox.appendChild(b);
+      }
+    }
+
+    // --- Animals Gifts Tracking ---
+    let duckSeen = false;
+    let henSeen = false;
+
+    function openDuck() {
+      duckSeen = true;
+      document.getElementById("duckModal").classList.add("show");
+      confetti({ particleCount: 40, spread: 60 });
+    }
+
+    function closeDuck() {
+      document.getElementById("duckModal").classList.remove("show");
+      checkBothSeen();
+    }
+
+    function openHen() {
+      henSeen = true;
+      document.getElementById("henModal").classList.add("show");
+    }
+
+    function closeHen() {
+      document.getElementById("henModal").classList.remove("show");
+      checkBothSeen();
+    }
+
+    function checkBothSeen() {
+      if (duckSeen && henSeen) {
+        document.getElementById("nextBtnContainer").style.display = "block";
+      }
+    }
+
+    // --- Final Fireworks stream ---
+    function launchConfettiStream() {
+      let count = 0;
+      const interval = setInterval(() => {
+        confetti({
+          particleCount: 40,
+          spread: 80,
+          origin: { y: 0.7 }
+        });
+        count++;
+        if (count > 4) clearInterval(interval);
+      }, 700);
+    }
+
+    // Trigger next button automatically after AI video finishes
+    document.getElementById("aiVideo").onended = function() {
+      document.getElementById("btnToFinal").scrollIntoView({ behavior: 'smooth' });
+    };
+  </script>
+</body>
+</html>
